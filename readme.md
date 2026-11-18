@@ -1,3 +1,5 @@
+### Realized by LAFHAJ Ethan and BAUDENS Aurore
+
 # baseSpringBoot
 
 A Spring Boot application using Java 21, Maven, and PostgreSQL. Docker Compose starts the application and its database together.
