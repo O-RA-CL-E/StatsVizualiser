@@ -1,4 +1,4 @@
-package com.basespringboot.Controller;
+package com.basespringboot.controller;
 
 import com.basespringboot.business.FormService;
 import com.basespringboot.form.Form;
