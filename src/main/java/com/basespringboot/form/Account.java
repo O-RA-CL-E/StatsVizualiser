@@ -1,6 +1,8 @@
 package com.basespringboot.form;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,6 +39,9 @@ public class Account {
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
+    private List<StatSnapshot> snapshots = new ArrayList<>();
 
     @PrePersist 
     void onCreate() {
