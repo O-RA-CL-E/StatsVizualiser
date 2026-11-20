@@ -1,0 +1,15 @@
+meta {
+  name: 10 Error 404 - delete unknown id
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{baseUrl}}/accounts/999999
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}

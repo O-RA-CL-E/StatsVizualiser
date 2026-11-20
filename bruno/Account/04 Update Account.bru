@@ -1,0 +1,25 @@
+meta {
+  name: 04 Update Account
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/accounts/{{accountId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "platform": "INSTAGRAM",
+    "handle": "demo_account",
+    "label": "Label modifie",
+    "url": "https://example.com/demo_account"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.label: eq Label modifie
+}

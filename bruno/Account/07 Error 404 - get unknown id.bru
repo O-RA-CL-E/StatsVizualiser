@@ -1,0 +1,15 @@
+meta {
+  name: 07 Error 404 - get unknown id
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/accounts/999999
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}
