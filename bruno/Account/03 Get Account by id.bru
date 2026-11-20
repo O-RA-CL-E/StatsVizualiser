@@ -1,0 +1,16 @@
+meta {
+  name: 03 Get Account by id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/accounts/{{accountId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.handle: eq demo_account
+}

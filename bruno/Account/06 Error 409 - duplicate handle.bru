@@ -1,0 +1,24 @@
+meta {
+  name: 06 Error 409 - duplicate handle
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "platform": "INSTAGRAM",
+    "handle": "demo_account",
+    "label": "Doublon",
+    "url": "https://example.com/doublon"
+  }
+}
+
+assert {
+  res.status: eq 409
+}

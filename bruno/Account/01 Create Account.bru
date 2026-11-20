@@ -1,0 +1,29 @@
+meta {
+  name: 01 Create Account
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "platform": "INSTAGRAM",
+    "handle": "demo_account",
+    "label": "Compte demo",
+    "url": "https://example.com/demo_account"
+  }
+}
+
+assert {
+  res.status: eq 201
+  res.body.handle: eq demo_account
+}
+
+script:post-response {
+  bru.setVar("accountId", res.body.id);
+}
