@@ -1,0 +1,16 @@
+meta {
+  name: 04 List Snapshots
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/accounts/{{snapshotAccountId}}/snapshots
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 2
+}

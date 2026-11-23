@@ -1,0 +1,22 @@
+meta {
+  name: 07 Error 400 - negative followers
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/accounts/{{snapshotAccountId}}/snapshots
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2026-11-15",
+    "followers": -5
+  }
+}
+
+assert {
+  res.status: eq 400
+}

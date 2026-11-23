@@ -1,0 +1,22 @@
+meta {
+  name: 06 Update Snapshot
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/snapshots/{{snapshotId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2026-11-01",
+    "followers": 1100
+  }
+}
+
+assert {
+  res.status: eq 200
+}

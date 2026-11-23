@@ -1,0 +1,15 @@
+meta {
+  name: 15 Cleanup - Delete Account
+  type: http
+  seq: 15
+}
+
+delete {
+  url: {{baseUrl}}/accounts/{{snapshotAccountId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

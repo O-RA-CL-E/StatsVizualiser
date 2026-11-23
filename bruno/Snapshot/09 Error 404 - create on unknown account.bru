@@ -1,0 +1,22 @@
+meta {
+  name: 09 Error 404 - create on unknown account
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/accounts/999999/snapshots
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2026-11-15",
+    "followers": 500
+  }
+}
+
+assert {
+  res.status: eq 404
+}

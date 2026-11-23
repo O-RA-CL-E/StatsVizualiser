@@ -1,0 +1,22 @@
+meta {
+  name: 12 Error 404 - update unknown snapshot
+  type: http
+  seq: 12
+}
+
+put {
+  url: {{baseUrl}}/snapshots/999999
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2026-11-20",
+    "followers": 500
+  }
+}
+
+assert {
+  res.status: eq 404
+}

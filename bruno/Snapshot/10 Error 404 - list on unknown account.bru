@@ -1,0 +1,15 @@
+meta {
+  name: 10 Error 404 - list on unknown account
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/accounts/999999/snapshots
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}

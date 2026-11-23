@@ -1,0 +1,15 @@
+meta {
+  name: 13 Delete Snapshot
+  type: http
+  seq: 13
+}
+
+delete {
+  url: {{baseUrl}}/snapshots/{{snapshotId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

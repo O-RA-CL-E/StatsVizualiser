@@ -1,0 +1,22 @@
+meta {
+  name: 03 Create second Snapshot
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/accounts/{{snapshotAccountId}}/snapshots
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2026-11-10",
+    "followers": 1200
+  }
+}
+
+assert {
+  res.status: eq 201
+}

@@ -1,0 +1,22 @@
+meta {
+  name: 08 Error 400 - future date
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/accounts/{{snapshotAccountId}}/snapshots
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2099-01-01",
+    "followers": 500
+  }
+}
+
+assert {
+  res.status: eq 400
+}

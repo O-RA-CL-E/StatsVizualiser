@@ -1,0 +1,28 @@
+meta {
+  name: 01 Setup - Create Account
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "platform": "X",
+    "handle": "demo_snapshots",
+    "label": "Compte releves",
+    "url": "https://example.com/demo_snapshots"
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:post-response {
+  bru.setVar("snapshotAccountId", res.body.id);
+}
